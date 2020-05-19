@@ -1,6 +1,7 @@
 # Helidon Quickstart SE Example
 
-This project implements a simple Hello World REST service using Helidon SE.
+This project implements a simple Hello World REST service using Helidon SE and describes
+how to deploy it in Google App Engine.
 
 ## Build and run
 
