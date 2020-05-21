@@ -92,7 +92,8 @@
                                     <filtering>true</filtering>
                                     <directory>src/main/gae</directory>
                                     <includes>
-                                        <include>gae-app.yaml</include>
+                                        <include>helidon-se-app.yaml</include>
+                                        <include>.gcloudignore</include>
                                     </includes>
                                 </resource>
                             </resources>

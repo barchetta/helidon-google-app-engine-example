@@ -39,20 +39,11 @@ public final class Main {
      * @throws IOException if there are problems reading logging properties
      */
     public static void main(final String[] args) throws IOException {
-
-        int port = 0;
-
         // load logging configuration
         setupLogging();
 
-        // Override port with the PORT environment variable that is set by Google App Engine
-        String envPort = System.getenv().getOrDefault("PORT", "");
-        if (! envPort.isEmpty()) {
-            port = Integer.parseInt(envPort);
-        }
-
         // start the server
-        Server server = startServer(port);
+        Server server = startServer();
 
         System.out.println("http://localhost:" + server.port() + "/greet");
     }
@@ -61,14 +52,13 @@ public final class Main {
      * Start the server.
      * @return the created {@link Server} instance
      */
-    static Server startServer(int port) {
-        // Server will automatically pick up configuration from
-        // microprofile-config.properties
-        // and Application classes annotated as @ApplicationScoped
-
+    static Server startServer() {
         Server.Builder builder = Server.builder();
-        if (port > 0) {
-            builder.port(port);
+
+        // Override port with the PORT environment variable
+        String envPort = System.getenv().getOrDefault("PORT", "");
+        if (! envPort.isEmpty()) {
+            builder.port(Integer.parseInt(envPort));
         }
         return builder.build().start();
    }

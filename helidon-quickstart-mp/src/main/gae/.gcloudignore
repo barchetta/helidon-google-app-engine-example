@@ -1,0 +1,8 @@
+# Exclude everything. Then include just the app jar and runtime
+# dependencies in libs/
+*
+*/
+*/**
+!${project.artifactId}.jar
+!libs/
+!libs/**

@@ -75,7 +75,7 @@ mvn package
 Then deploy it to Google App Engine
 
 ```bash
-gcloud app deploy target/gae-app.yaml
+gcloud app deploy target/helidon-mp-app.yaml
 ```
 
 This will upload files, then deploy the service.
@@ -101,7 +101,10 @@ the URL.
 * By default Helidon packages your application as a "thin" jar file with runtime dependencies
   external to the jar (in `libs`). The jar file's `META-INF/MANIFEST.MF` has `Main-Class` and `Class-Path`
   set appropriately.  Google App Engine [supports this packaging](https://cloud.google.com/appengine/docs/standard/java11/runtime#application_startup)
-  as long as you use a custom entrypoint as is done in `target/gae-app.yaml`.
+  as long as you use a custom entrypoint as is done in `target/helidon-mp-app.yaml`.
+* To control what files are uploaded we have `src/main/gae/.gcloudignore` that gets
+  copied into the target directory. It excludes everything, and then includes only what
+  is needed.
 
 ## Cleanup!
 

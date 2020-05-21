@@ -36,7 +36,7 @@ class MainTest {
 
     @BeforeAll
     public static void startTheServer() throws Exception {
-        server = Main.startServer(0);
+        server = Main.startServer();
     }
 
     @Test
